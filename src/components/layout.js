@@ -6,13 +6,13 @@ const Layout = () => {
     const [score, setScore] = useState(0);
     const [hiscore, setHiscore] = useState(0);
     let [list, setList] = useState(cardlist);
-    
-    useEffect(()=>{if (score==8){
+    //create states for setting current score, hi score, and cards to use
+    useEffect(()=>{if (score==8){//live highscore update that does not wait for elements to render before udpating because of useEffect
         setHiscore(score);
         alert("YOU WIN! Click ok to restart.");
         setScore(0);
         var list2 = list;
-        list2.map((x)=>{
+        list2.map((x)=>{//map clicked property to false
             x.clicked=false;
         })
         list = list2;
@@ -36,8 +36,8 @@ const Layout = () => {
                 })
                 setList(list2);
             }
-        }
-        function shuffleArray(array1,x,scoreupdate) {
+        }//update live score and set to 0 if card is already clicked. 
+        function shuffleArray(array1,x,scoreupdate) {//randomly shuffle element order in cardlist array
             scoreupdate(x);
             let array = [...array1];
             for (var i = array.length - 1; i > 0; i--) {
