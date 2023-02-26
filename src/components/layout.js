@@ -63,6 +63,7 @@ const Layout = () => {
                         <img className = 'image' src ={x.img} onClick={()=>shuffleArray(cardlist,x,scoreupdate)}></img>
                     </div>);
             })}</div>
+            <button></button>
         </div>
         );
 }
